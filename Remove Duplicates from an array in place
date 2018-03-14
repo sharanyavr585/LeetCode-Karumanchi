@@ -1,0 +1,19 @@
+class Solution {
+    public int removeDuplicates(int[] A) {
+        int n = A.length; 
+        if(n<2){   /*If the array has 0 or 1 elements just return the length*/
+            return n;
+        }
+        int end=0; /*initial pointer points at the first element*/
+        for(int i=1;i<n;i++){
+            if(A[end]!=A[i]){ /*If they are equal do nothing, i moves ahead*/
+                end++;  /*If they are unequal move end by 1*/
+                if(end!=i){ /*if i and end are not equal then move A[i] to A[end]
+                    A[end]=A[i];
+                }
+            }
+        }
+        return end+1;
+        
+    }
+}
