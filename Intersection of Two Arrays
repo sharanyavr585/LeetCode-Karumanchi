@@ -1,0 +1,34 @@
+class Solution {
+    public int[] intersect(int[] nums1, int[] nums2) {
+        HashMap<Integer, Integer> maps =  new HashMap<Integer, Integer>();
+            for(int i:nums1) {
+                if(maps.containsKey(i)){
+                    maps.put(i,maps.get(i)+1);
+                }
+                else{
+                    maps.put(i,1);
+                }
+            }
+     ArrayList<Integer> list = new ArrayList<Integer>();
+         for(int i:nums2){
+             if(maps.containsKey(i)){
+                 if(maps.get(i)>1){
+                     maps.put(i,maps.get(i)-1);
+                 }
+                 else{
+                     maps.remove(i);
+                 }
+                 list.add(i);
+                 
+             }
+         }
+        int[] result = new int[list.size()];
+        int i=0;
+        while(i<list.size()){
+            result[i]=list.get(i);
+            i++;
+        }
+        return result;
+        
+    }
+}
