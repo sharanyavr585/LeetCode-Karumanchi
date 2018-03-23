@@ -1,0 +1,15 @@
+class Solution {
+    public int firstUniqChar(String s) {
+        
+        for(int i =0; i<s.length();i++){
+            if(s.indexOf(s.charAt(i),0) ==s.lastIndexOf(s.charAt(i), s.length()-1)){
+                return i;
+            }
+            else{
+                continue;
+            }
+        }
+        return -1;
+        
+    }
+}
